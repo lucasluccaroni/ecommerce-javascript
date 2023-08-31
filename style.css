@@ -1,0 +1,30 @@
+.lista-header {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+  
+li {
+    float: center;
+}
+  
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+li a:hover {
+    background-color: #3b65f1;
+}
+
+
+h1{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+
+}
