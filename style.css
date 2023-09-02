@@ -1,8 +1,17 @@
 .container-html{
-    border: solid blue 1px;
+    /* border: solid blue 1px; */
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
+
+.container-carrito{
+    background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 
 .card{
     margin: 30px;
@@ -18,3 +27,9 @@
     height: 300px;
 }
 
+body{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
