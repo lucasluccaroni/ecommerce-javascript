@@ -3,29 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="style.css">
     <title>TIENDA FINAL</title>
 </head>
 <body>
     
     <h1> WELCOME TO FINAL STORE</h1>
-    <button id="botonOscuro">Modo Oscuro</button>
+    <button id="boton-modo-oscuro">Dark Mode</button>
     <br>
 
-    <div>
+<!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"> <img src="https://i.dummyjson.com/data/products/63/1.jpg" alt="Royal Blue Premium Watch"></div>
+            <div class="swiper-slide"> <img src="https://i.dummyjson.com/data/products/71/1.jpg" alt="Women Shoulder Bags"></div>
+            <div class="swiper-slide"> <img src="https://i.dummyjson.com/data/products/81/1.jpg" alt="Round Silver Frame Sun Glasses"></div>
+            <div class="swiper-slide"> <img src= "https://i.dummyjson.com/data/products/43/1.jpg" alt="frock gold printed"></div>
+            <div class="swiper-slide"><img src="https://i.dummyjson.com/data/products/32/1.jpg" alt="Sofa for Coffe Cafe"></div>
+            <div class="swiper-slide"> <img src="https://i.dummyjson.com/data/products/31/1.jpg" alt="Mornadi Velvet Bed",></div>
+            <div class="swiper-slide"> <img src="https://i.dummyjson.com/data/products/98/1.jpg" alt="3 lights lndenpant kitchen islang"></div>
+            <div class="swiper-slide"><img src= "https://i.dummyjson.com/data/products/16/1.png" alt="Hyaluronic Acid Serum"></div>
+            <div class="swiper-slide"><img src="https://i.dummyjson.com/data/products/6/2.jpg" alt="MacBook Pro"></div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+
+
+
+    <br>
+    <h2>PRODUCTS</h2>
+    <div class="botonesPag">
         <button id="prev">Prev</button>
         <button id="next">Next</button>
     </div>
 
-    <br>
-    <h2>PRODUCTOS</h2>
+    <div class="botonesOrder">
+        <button id="ordenar-az"> Order A-Z </button>
+        <button id="ordenar-za"> Order Z-A </button>
+    </div>
+
     <div class="container-html"></div>
     
     <div class="carritoHTML">
-        <h2>CARRITO</h2>
+        <h2>SHOPPING CART </h2>
         <div class="container-carrito"></div>
     </div>
 
+
+    <footer>
+        <h2> CONTACT US</h2>
+        <form>
+            <input type="text" placeholder="Enter your first name" id="input-nombre">
+            <input type="text" placeholder="Enter your last name" id="input-apellido">
+            <input type="number" placeholder="Enter your phone number" id="input-telefono">
+            <input type="email" placeholder="Enter your e-mail" id="input-correo">
+            <input type="submit"> 
+        </form>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>

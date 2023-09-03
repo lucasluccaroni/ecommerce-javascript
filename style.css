@@ -33,3 +33,29 @@ body{
     flex-direction: column;
     align-items: center;
 }
+
+
+.modo-oscuro{
+    background-color: rgb(85, 92, 109);
+}
+
+form{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    background-color: red;
+
+}
+
+footer{
+    width: 100%;
+    display: flex;
+    background-color: grey;
+}
+
+.swiper {
+    width: 500px;
+    height: 500px;
+    border: solid orange;
+}
