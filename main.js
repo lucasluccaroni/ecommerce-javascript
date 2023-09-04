@@ -17,10 +17,11 @@ const cardsAHtml = (array, contenedor) => {
                 <h3>
                     Price: $${ element.price }
                 </h3>
-                
+
                 <figure class"container-card">
-                    <img class="imagenes" src=${element.images[0]}  alt=${element.name}
+                    <img class="imagenes" src=${element.images[0]}  alt=${element.name}>
                 </figure>
+
                 
                 <h4>
                     ${element.description}
@@ -71,8 +72,11 @@ const requestCards = () =>{
         cardsAHtml(data.products, containerHtml)
         agregarAlCarrito(data.products)
         removerDelCarrito(carrito)
+        //ordenarAZ(data.products)
+        //ordenarZA(data.products)
+        ordenarCards(data.products)
     })
-    .catch(() =>console.log("ERROR EN LA REQUEST"))
+    .catch((error) =>console.log(error))
 }
 requestCards()
 
@@ -98,20 +102,19 @@ const agregarAlCarrito = array =>{
 //REMOVER DEL CARRITO
 const removerDelCarrito = array => {
     const cardsRemove = document.querySelectorAll(".remove-carrito")
-    //
+    console.log(cardsRemove);
 
-    for(let i = 0; i < cardsRemove.length; i++);
+    for(let i = 0; i < cardsRemove.length; i++){
         cardsRemove[i].onclick = (e) => {
-        console.log("remove");
-
-        const id = e.target.id.slice(4)
-        const buscarDato = array.filter(element => element.id === Number(id))
-        console.log(buscarDato);
-        carrito.push(buscarDato);
-        localStorage.setItem("carrito",JSON.stringify(carrito));
-        cardsAHtml(carrito, containerCarrito)
+            console.log("remove");
+            const id = e.target.id.slice(4)
+            const carritoModificado = array.filter(element => element.id !== Number(id))
+            console.log(carritoModificado);
+            // carrito.push(carritoModificado);
+            localStorage.setItem("carrito",JSON.stringify(carritoModificado));
+            cardsAHtml(carritoModificado, containerCarrito)
+        }
     }
-
 }
 
 
@@ -192,23 +195,65 @@ const swiper = new Swiper(".mySwiper", {
 
 
 //ORDENAR A-Z / Z-A
-// const botonOrdenarAZ = document.querySelector('#ordenar-az');
-// const botonOrdenarZA = document.querySelector('#ordenar-za');
+const botonOrdenarAZ = document.querySelector('#ordenar-az');
+const botonOrdenarZA = document.querySelector('#ordenar-za');
+const selectorOrden = document.querySelector("#selectorOrden")
+
+const ordenarCards = array =>{
+    document.addEventListener("change", (e)=>{
+        console.log(e.target.value);
+
+        if (e.target.value === "default") {
+            cardsAHtml(array, containerHtml);
+
+        } else if (e.target.value === "az"){
+            cardsOrdenadasAz = array.sort(function(a, b) {
+                let orden = a.title.localeCompare(b.title);
+                //console.log(array);
+                return orden
+            });
+            cardsAHtml(cardsOrdenadasAz, containerHtml)
+
+        } else if (e.target.value === "za"){
+            cardsOrdenadasZa = array.sort(function(a, b) {
+                let orden = b.title.localeCompare(a.title);
+                //console.log(array);
+                return orden
+            });
+            cardsAHtml(cardsOrdenadasZa, containerHtml)
+        }
+    })
+
+}
+
+const ordenarAZ = array =>{
+    botonOrdenarAZ.addEventListener("click", () =>{
+        
+        cardsOrdenadas = array.sort(function(a, b) {
+            let prueba = a.title.localeCompare(b.title);
+            //console.log(array);
+            return prueba
+        });
+        cardsAHtml(cardsOrdenadas, containerHtml)
+    })
+}
+
+const ordenarZA = array =>{
+    botonOrdenarZA.addEventListener("click", () =>{
+        
+        cardsOrdenadas = array.sort(function(a, b) {
+            let prueba = b.title.localeCompare(a.title);
+            //console.log(array);
+            return prueba
+        });
+        cardsAHtml(cardsOrdenadas, containerHtml)
+    })
+}
 
 
-// const ordenarAz = array =>{
-    
-//     botonOrdenarAZ.addEventListener("click", ()=>{
-//         productos.sort((a, b) => a.nombre.localeCompare(b.nombre));
 
 
-//     })
 
-
-// }
-
-
-// function ordenarProductosZA() {
-//     productos.sort((a, b) => b.nombre.localeCompare(a.nombre));
-//     mostrarProductos();
-// }
+{/* <figure class"container-card">
+<img class="imagenes" src=${element.images[0]}  alt=${element.name}>
+</figure> */}

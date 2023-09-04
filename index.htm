@@ -13,8 +13,8 @@
     <h1> WELCOME TO FINAL STORE</h1>
     <button id="boton-modo-oscuro">Dark Mode</button>
     <br>
-
-<!-- Swiper -->
+    
+    <!-- Swiper -->
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide"> <img src="https://i.dummyjson.com/data/products/63/1.jpg" alt="Royal Blue Premium Watch"></div>
@@ -30,10 +30,12 @@
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
     </div>
-
-
-
-
+    
+    
+    <hr id="top" class="hidden" /> <!-- ACA -->
+    <a class="scrollNavigation" href="#bottom">↓ CARRITO</a>
+    
+    
     <br>
     <h2>PRODUCTS</h2>
     <div class="botonesPag">
@@ -44,10 +46,19 @@
     <div class="botonesOrder">
         <button id="ordenar-az"> Order A-Z </button>
         <button id="ordenar-za"> Order Z-A </button>
+
+        <select id="selectorOrden">
+            <option value="default" selected>Default</option>
+            <option value="az">Order A-Z</option>
+            <option value="za">Order Z-A</option>
+        </select>
     </div>
 
     <div class="container-html"></div>
     
+    <hr id="bottom" class="hidden" /> <!--ACA-->
+    <a class="scrollNavigation" href="#top">↑ Go Top</a>
+
     <div class="carritoHTML">
         <h2>SHOPPING CART </h2>
         <div class="container-carrito"></div>
