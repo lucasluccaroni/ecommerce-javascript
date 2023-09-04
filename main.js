@@ -70,7 +70,7 @@ const requestCards = () =>{
         console.log(data);
         cardsAHtml(data.products, containerHtml)
         agregarAlCarrito(data.products)
-
+        removerDelCarrito(carrito)
     })
     .catch(() =>console.log("ERROR EN LA REQUEST"))
 }
@@ -87,7 +87,7 @@ const agregarAlCarrito = array =>{
             console.log("me hacen click");
             const id = e.target.id.slice(4)
             const buscarDato = array.find(element => element.id === Number(id))
-
+            console.log(buscarDato);
             carrito.push(buscarDato);
             localStorage.setItem("carrito", JSON.stringify(carrito))
             cardsAHtml(carrito, containerCarrito)
@@ -96,17 +96,20 @@ const agregarAlCarrito = array =>{
 }
 
 //REMOVER DEL CARRITO
-const remomverDeCarrito = array => {
+const removerDelCarrito = array => {
     const cardsRemove = document.querySelectorAll(".remove-carrito")
-    console.log(cardsRemove);
+    //
 
     for(let i = 0; i < cardsRemove.length; i++);
         cardsRemove[i].onclick = (e) => {
         console.log("remove");
-        
+
         const id = e.target.id.slice(4)
         const buscarDato = array.filter(element => element.id === Number(id))
         console.log(buscarDato);
+        carrito.push(buscarDato);
+        localStorage.setItem("carrito",JSON.stringify(carrito));
+        cardsAHtml(carrito, containerCarrito)
     }
 
 }
