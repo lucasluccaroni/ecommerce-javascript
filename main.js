@@ -22,16 +22,15 @@ const cardsAHtml = (array, contenedor) => {
                     <img class="imagenes" src=${element.images[0]}  alt=${element.name}>
                 </figure>
 
-                
                 <h4>
                     ${element.description}
                 </h4>
                 <button class="button-carrito" id="car-${element.id}">
-                    Add to cart
+                    <i class="fa-solid fa-cart-arrow-down fa-xl"></i>
                 </button>
 
                 <button class="remove-carrito" id="rem-${element.id}">
-                    Remove
+                    <i class="fa-solid fa-xmark fa-xl"></i>
                 </button>
             </div>
         `
@@ -132,6 +131,13 @@ botonModoOscuro.addEventListener('click', () => {
     body.classList.toggle('modo-oscuro');
     const modoOscuroActivado = body.classList.contains('modo-oscuro');
     localStorage.setItem('modo-oscuro', modoOscuroActivado);
+    Toastify({
+        className: "toastOsc",
+        backgroundColor: " linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 13%, rgba(0,212,255,1) 100%)",
+        text: "Dark Mode switched",
+        duration: 2000,
+        onClick: () => {console.log("MODO OSCURO")}
+    }).showToast();
 });
 
 
@@ -152,20 +158,23 @@ formulario.addEventListener("submit", (event)=> {
 
     const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputCorreo.value);
     if (!emailValido) {
-        alert('Por favor ingresa un email válido');
+        Swal.fire("Please enter a valid e-mail", "", "error")
         event.preventDefault();
         return;
-    }
 
-    if (inputNombre.value.length < 3) {
-        alert('Por favor ingresa un nombre con más de 2 caracteres');
+    } else if(inputNombre.value.length < 3) {
+        Swal.fire("Please enter a First Name with more than 2 characters", "", "error")
         event.preventDefault();
         return;
-    }
 
-    if (inputApellido.value.length < 3) {
-        alert('Por favor ingresa un Apellido con más de 2 caracteres');
+    } else if (inputApellido.value.length < 3) {
+        Swal.fire("Please enter a Last Name with more than 2 characters", "", "error")
         event.preventDefault();
+        return;
+
+    } else if (inputTelefono.value.length < 8) {
+        Swal.fire("Please enter a valid phone number", "", "error")
+        e.preventDefault();
         return;
     }
 
@@ -179,6 +188,8 @@ formulario.addEventListener("submit", (event)=> {
 
     localStorage.setItem("contacto", JSON.stringify(contacto));
     formulario.reset();
+
+    Swal.fire("Submitted Form.", "¡Check your email for exclusive offers!", "success")
 })
 
 
@@ -226,33 +237,35 @@ const ordenarCards = array =>{
 
 }
 
-const ordenarAZ = array =>{
-    botonOrdenarAZ.addEventListener("click", () =>{
+
+//ORDENAR AZ DOS BOTONES
+// const ordenarAZ = array =>{
+//     botonOrdenarAZ.addEventListener("click", () =>{
         
-        cardsOrdenadas = array.sort(function(a, b) {
-            let prueba = a.title.localeCompare(b.title);
-            //console.log(array);
-            return prueba
-        });
-        cardsAHtml(cardsOrdenadas, containerHtml)
-    })
-}
+//         cardsOrdenadas = array.sort(function(a, b) {
+//             let prueba = a.title.localeCompare(b.title);
+//             //console.log(array);
+//             return prueba
+//         });
+//         cardsAHtml(cardsOrdenadas, containerHtml)
+//     })
+// }
 
-const ordenarZA = array =>{
-    botonOrdenarZA.addEventListener("click", () =>{
+// const ordenarZA = array =>{
+//     botonOrdenarZA.addEventListener("click", () =>{
         
-        cardsOrdenadas = array.sort(function(a, b) {
-            let prueba = b.title.localeCompare(a.title);
-            //console.log(array);
-            return prueba
-        });
-        cardsAHtml(cardsOrdenadas, containerHtml)
-    })
-}
+//         cardsOrdenadas = array.sort(function(a, b) {
+//             let prueba = b.title.localeCompare(a.title);
+//             //console.log(array);
+//             return prueba
+//         });
+//         cardsAHtml(cardsOrdenadas, containerHtml)
+//     })
+// }
+//----------------------------------------------------------------------
 
 
-
-
+//Swal.fire("Titulo", "subtitulo", "warning")
 
 {/* <figure class"container-card">
 <img class="imagenes" src=${element.images[0]}  alt=${element.name}>

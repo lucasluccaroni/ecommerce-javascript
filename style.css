@@ -61,3 +61,27 @@ footer{
     height: 500px;
     border: solid orange;
 }
+
+.toastOsc{
+}
+
+#boton-modo-oscuro{
+    height: 40px;
+    width: fit-content;
+    background-color: transparent;
+    border: solid black 3px;
+}
+
+#prev, #next{
+    width: fit-content;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+}
+
+.button-carrito, .remove-carrito{
+    width: 50px;
+    height: 30px;
+    background-color: rgb(177, 224, 255);
+    border: solid 1px;
+}
