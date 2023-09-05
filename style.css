@@ -14,11 +14,14 @@
 
 
 .card{
+    font-family: 'Open Sans', sans-serif;
     margin: 30px;
     width: 450px;   
     background-color: antiquewhite;
     border: 1px solid grey;
     justify-content: center;
+    padding-bottom: 15px;
+    padding-left: 15px;
 
 }
 
@@ -41,7 +44,11 @@ body{
 .swiper {
     width: 99%;
     height: 100%;
-    border: solid black;
+    /* border: solid black 1px; */
+    -webkit-box-shadow: 10px 10px 12px 4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 12px 4px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 12px 4px rgba(0,0,0,0.75);
+    margin-bottom: 50px;
 }
 .swiper-slide {
     text-align: center;
@@ -162,8 +169,45 @@ input:checked + .slider:before {
 /* TOGGLE MODO OSCURO */
 
 .modo-oscuro-text{
+    font-family: 'Raleway', sans-serif;
     position: relative;
     right: 900px;
-    color: #f52c1d;
-    border: solid 1px;
+    color: #050505;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.scrollNavigation{
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: underline;
+    font-weight: bolder;
+}
+
+h1{
+    font-family: 'Raleway', sans-serif;
+    font-size: 64px;
+}
+
+h2{
+    font-family: 'Raleway', sans-serif;
+    font-size: xx-large;  
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+
+#cat-logo{
+    width: 150px;
+    height: 200px;
+    position: relative;
+    right: 400px;
+    border: solid;
+    border-radius: 20%;
 }

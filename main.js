@@ -230,9 +230,9 @@ const ordenarCards = array =>{
         } else if (e.target.value === "az"){
             let cardsOrdenadasAz = array.sort(function(a, b) {
                 let orden = a.title.localeCompare(b.title);
-                //console.log(array);
                 return orden
             });
+            console.log(cardsOrdenadasAz);;
             cardsAHtml(cardsOrdenadasAz, containerHtml)
 
         } else if (e.target.value === "za"){
