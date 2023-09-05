@@ -26,11 +26,11 @@ const cardsAHtml = (array, contenedor) => {
                     ${element.description}
                 </h4>
                 <button class="button-carrito" id="car-${element.id}">
-                    <i class="fa-solid fa-cart-arrow-down fa-xl"></i>
+                    <i class="fa-solid fa-cart-arrow-down fa-xl"  id="car-${element.id}"  ></i>
                 </button>
 
                 <button class="remove-carrito" id="rem-${element.id}">
-                    <i class="fa-solid fa-xmark fa-xl"></i>
+                    <i class="fa-solid fa-xmark fa-xl" id="rem-${element.id}"></i>
                 </button>
             </div>
         `
@@ -71,8 +71,6 @@ const requestCards = () =>{
         cardsAHtml(data.products, containerHtml)
         agregarAlCarrito(data.products)
         removerDelCarrito(carrito)
-        //ordenarAZ(data.products)
-        //ordenarZA(data.products)
         ordenarCards(data.products)
     })
     .catch((error) =>console.log(error))
@@ -101,7 +99,7 @@ const agregarAlCarrito = array =>{
 //REMOVER DEL CARRITO
 const removerDelCarrito = array => {
     const cardsRemove = document.querySelectorAll(".remove-carrito")
-    console.log(cardsRemove);
+    //console.log(cardsRemove);
 
     for(let i = 0; i < cardsRemove.length; i++){
         cardsRemove[i].onclick = (e) => {
@@ -118,7 +116,7 @@ const removerDelCarrito = array => {
 
 
 //MODO OSCURO
-const botonModoOscuro = document.querySelector('#boton-modo-oscuro');
+const botonModoOscuro = document.querySelector('.darkMode');
 const body = document.querySelector('body');
 
 const modoPreferido = localStorage.getItem('modo-oscuro');
@@ -196,29 +194,41 @@ formulario.addEventListener("submit", (event)=> {
 
 
 //SWIPER
+// const swiper = new Swiper(".mySwiper", {
+//     navigation: {
+//         nextEl: ".swiper-button-next",
+//         prevEl: ".swiper-button-prev",
+//     },
+// });
+
+
 const swiper = new Swiper(".mySwiper", {
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+
+    slidesPerView: 3,
+    spaceBetween: 30,
+    pagination: {
+
+        el: ".swiper-pagination",
+        clickable: true,
     },
 });
 
 
 
 //ORDENAR A-Z / Z-A
-const botonOrdenarAZ = document.querySelector('#ordenar-az');
-const botonOrdenarZA = document.querySelector('#ordenar-za');
+// const botonOrdenarAZ = document.querySelector('#ordenar-az');
+// const botonOrdenarZA = document.querySelector('#ordenar-za');
 const selectorOrden = document.querySelector("#selectorOrden")
 
 const ordenarCards = array =>{
-    document.addEventListener("change", (e)=>{
+    selectorOrden.addEventListener("change", (e)=>{
         console.log(e.target.value);
 
         if (e.target.value === "default") {
             cardsAHtml(array, containerHtml);
 
         } else if (e.target.value === "az"){
-            cardsOrdenadasAz = array.sort(function(a, b) {
+            let cardsOrdenadasAz = array.sort(function(a, b) {
                 let orden = a.title.localeCompare(b.title);
                 //console.log(array);
                 return orden
@@ -226,15 +236,22 @@ const ordenarCards = array =>{
             cardsAHtml(cardsOrdenadasAz, containerHtml)
 
         } else if (e.target.value === "za"){
-            cardsOrdenadasZa = array.sort(function(a, b) {
+            let cardsOrdenadasZa = array.sort(function(a, b) {
                 let orden = b.title.localeCompare(a.title);
                 //console.log(array);
                 return orden
             });
             cardsAHtml(cardsOrdenadasZa, containerHtml)
-        }
-    })
 
+        }else if(e.target.value === "precioAc"){
+            let cardsOrdenadasPrecioAc = array.sort((a,b) => a.price-b.price)
+            return cardsAHtml(cardsOrdenadasPrecioAc, containerHtml)
+
+        }else if(e.target.value === "precioDec"){
+            let cardsOrdenadasPrecioDec = array.sort((a,b) => b.price-a.price)
+            return cardsAHtml(cardsOrdenadasPrecioDec, containerHtml)
+        }    
+    })
 }
 
 
@@ -270,6 +287,3 @@ const ordenarCards = array =>{
 {/* <figure class"container-card">
 <img class="imagenes" src=${element.images[0]}  alt=${element.name}>
 </figure> */}
-
-
-console.log("HOLA");

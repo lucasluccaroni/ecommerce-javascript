@@ -33,6 +33,30 @@ body{
     flex-direction: column;
     align-items: center;
     background-image: url("./img/fondo.jpg");
+    position: relative;
+    height: 100%;
+}
+
+
+.swiper {
+    width: 99%;
+    height: 100%;
+    border: solid black;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.swiper-slide img {
+    display: block;
+    width: 500px;
+    height: 400px;
+    /* object-fit: cover; */
 }
 
 
@@ -56,19 +80,6 @@ footer{
     background-color: grey;
 }
 
-.swiper {
-    width: 500px;
-    height: 500px;
-    border: solid orange;
-}
-
-
-#boton-modo-oscuro{
-    height: 40px;
-    width: fit-content;
-    background-color: transparent;
-    border: solid black 3px;
-}
 
 #prev, #next{
     width: fit-content;
@@ -80,6 +91,79 @@ footer{
 .button-carrito, .remove-carrito{
     width: 50px;
     height: 30px;
-    background-color: rgb(177, 224, 255);
+    background-color: rgb(201, 233, 255);
+    border: solid 1px;
+    margin-left: 20PX;
+
+}
+
+
+
+#boton-modo-oscuro{
+    height: 40px;
+    width: fit-content;
+    background-color: transparent;
+    border: solid black 3px;
+    position: relative;
+    right: 900px;
+}
+/* TOGGLE MODO OSCURO */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    right: 900px;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #8bc8e4;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+input:checked + .slider {
+    background-color: #04579b;
+}
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+.slider.round {
+    border-radius: 34px;
+}
+.slider.round:before {
+    border-radius: 50%;
+}
+/* TOGGLE MODO OSCURO */
+
+.modo-oscuro-text{
+    position: relative;
+    right: 900px;
+    color: #f52c1d;
     border: solid 1px;
 }

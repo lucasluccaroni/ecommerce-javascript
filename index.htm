@@ -17,27 +17,33 @@
 <body>
     
     <h1> WELCOME TO FINAL STORE</h1>
-    <button id="boton-modo-oscuro">
+
+    <!-- <button id="boton-modo-oscuro">
         <i class="fa-solid fa-circle-half-stroke fa-2xl"></i>
-    </button>
-    
+    </button> -->
+    <h4 class="modo-oscuro-text">Dark Mode</h4>
+    <label class="switch">
+        <input type="checkbox" class="darkMode">
+        <span class="slider round"></span>
+    </label>
+
     <br>
-    
     <!-- Swiper -->
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide"> <img src="https://i.dummyjson.com/data/products/63/1.jpg" alt="Royal Blue Premium Watch"></div>
             <div class="swiper-slide"> <img src="https://i.dummyjson.com/data/products/71/1.jpg" alt="Women Shoulder Bags"></div>
-            <div class="swiper-slide"> <img src="https://i.dummyjson.com/data/products/81/1.jpg" alt="Round Silver Frame Sun Glasses"></div>
-            <div class="swiper-slide"> <img src= "https://i.dummyjson.com/data/products/43/1.jpg" alt="frock gold printed"></div>
-            <div class="swiper-slide"><img src="https://i.dummyjson.com/data/products/32/1.jpg" alt="Sofa for Coffe Cafe"></div>
-            <div class="swiper-slide"> <img src="https://i.dummyjson.com/data/products/31/1.jpg" alt="Mornadi Velvet Bed",></div>
-            <div class="swiper-slide"> <img src="https://i.dummyjson.com/data/products/98/1.jpg" alt="3 lights lndenpant kitchen islang"></div>
             <div class="swiper-slide"><img src= "https://i.dummyjson.com/data/products/16/1.png" alt="Hyaluronic Acid Serum"></div>
-            <div class="swiper-slide"><img src="https://i.dummyjson.com/data/products/6/2.jpg" alt="MacBook Pro"></div>
+            <div class="swiper-slide"> <img src="https://i.dummyjson.com/data/products/81/1.jpg" alt="Round Silver Frame Sun Glasses"></div>
+            <div class="swiper-slide"><img src="https://i.dummyjson.com/data/products/85/1.jpg" alt="LouisWill Men Sunglasses"></div>
+            <div class="swiper-slide"><img src="https://i.dummyjson.com/data/products/6/1.png" alt="MacBook Pro"></div>
+            <div class="swiper-slide"> <img src= "https://i.dummyjson.com/data/products/76/1.jpg" alt="Silver Ring Set Women"></div>
+            <div class="swiper-slide"> <img src="https://i.dummyjson.com/data/products/98/1.jpg" alt="3 lights lndenpant kitchen islang"></div>
+            <div class="swiper-slide"> <img src="https://i.dummyjson.com/data/products/31/1.jpg" alt="Mornadi Velvet Bed",></div>
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+        <!-- <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div> -->
     </div>
     
     
@@ -57,13 +63,13 @@
     </div>
 
     <div class="botonesOrder">
-        <button id="ordenar-az"> Order A-Z </button>
-        <button id="ordenar-za"> Order Z-A </button>
 
         <select id="selectorOrden">
             <option value="default" selected>Default</option>
             <option value="az">Order A-Z</option>
             <option value="za">Order Z-A</option>
+            <option value="precioAc">Price(Ac.)</option>
+            <option value="precioDec">Price(Dec.)</option>
         </select>
     </div>
 
