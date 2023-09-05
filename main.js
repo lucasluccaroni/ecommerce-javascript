@@ -270,3 +270,6 @@ const ordenarCards = array =>{
 {/* <figure class"container-card">
 <img class="imagenes" src=${element.images[0]}  alt=${element.name}>
 </figure> */}
+
+
+console.log("HOLA");
