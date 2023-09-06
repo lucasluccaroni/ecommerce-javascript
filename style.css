@@ -6,10 +6,11 @@
 }
 
 .container-carrito{
-    background-color: rgb(199, 52, 15);
+    background-color: rgb(255, 255, 255);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 
@@ -17,8 +18,9 @@
     font-family: 'Open Sans', sans-serif;
     margin: 30px;
     width: 450px;   
-    background-color: antiquewhite;
-    border: 1px solid grey;
+    background-color: rgb(161, 187, 202);
+    border: 1px solid black;
+    border-radius: 1%;
     justify-content: center;
     padding-bottom: 15px;
     padding-left: 15px;
@@ -28,6 +30,9 @@
 .imagenes{
     width: 300px;
     height: 300px;
+    border: solid rgb(87, 83, 83);
+    border-radius: 5%;
+    border-style: outset;
 }
 
 body{
@@ -84,7 +89,11 @@ form{
 footer{
     width: 100%;
     display: flex;
-    background-color: grey;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    border-top: solid 1px black;
+    margin-top: 10px;
 }
 
 
@@ -103,7 +112,6 @@ footer{
     margin-left: 20PX;
 
 }
-
 
 
 #boton-modo-oscuro{
@@ -181,8 +189,7 @@ a{
 }
 
 .scrollNavigation{
-    font-family: 'Open Sans', sans-serif;
-    text-decoration: underline;
+    font-family: 'Raleway', sans-serif;
     font-weight: bolder;
 }
 
@@ -196,18 +203,34 @@ h2{
     font-size: xx-large;  
 }
 
-header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-
-}
-
 #cat-logo{
     width: 150px;
     height: 200px;
-    position: relative;
-    right: 400px;
+        position: relative;
+        right: 250px;
     border: solid;
     border-radius: 20%;
+}
+
+.swal2-html-container {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px !important;
+}
+
+.enlaces{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+
+.cabecera{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+header{
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    border-bottom: solid 1px black;
 }

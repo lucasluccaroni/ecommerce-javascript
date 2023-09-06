@@ -92,6 +92,13 @@ const agregarAlCarrito = array =>{
             carrito.push(buscarDato);
             localStorage.setItem("carrito", JSON.stringify(carrito))
             cardsAHtml(carrito, containerCarrito)
+            Toastify({
+                className: "toastOsc",
+                backgroundColor: "linear-gradient(90deg, rgba(9,124,110,1) 20%, rgba(2,188,216,1) 79%)",
+                text: "Added to cart",
+                duration: 2000,
+                onClick: () => {console.log("MODO OSCURO")}
+            }).showToast();
         }
     }
 }
@@ -110,10 +117,16 @@ const removerDelCarrito = array => {
             // carrito.push(carritoModificado);
             localStorage.setItem("carrito",JSON.stringify(carritoModificado));
             cardsAHtml(carritoModificado, containerCarrito)
+            Toastify({
+                className: "toastOsc",
+                backgroundColor: " linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 13%, rgba(0,212,255,1) 100%)",
+                text: "Removed from cart",
+                duration: 2000,
+                onClick: () => {console.log("MODO OSCURO")}
+            }).showToast();
         }
     }
 }
-
 
 //MODO OSCURO
 const botonModoOscuro = document.querySelector('.darkMode');
@@ -121,7 +134,7 @@ const body = document.querySelector('body');
 
 const modoPreferido = localStorage.getItem('modo-oscuro');
 if (modoPreferido === 'true') {
-  body.classList.add('modo-oscuro');
+    body.classList.add('modo-oscuro');
 }
 
 botonModoOscuro.addEventListener('click', () => {
@@ -131,7 +144,7 @@ botonModoOscuro.addEventListener('click', () => {
     localStorage.setItem('modo-oscuro', modoOscuroActivado);
     Toastify({
         className: "toastOsc",
-        backgroundColor: " linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 13%, rgba(0,212,255,1) 100%)",
+        backgroundColor: "linear-gradient(90deg, rgba(154,222,231,1) 22%, rgba(67,96,132,1) 79%)",
         text: "Dark Mode switched",
         duration: 2000,
         onClick: () => {console.log("MODO OSCURO")}

@@ -22,11 +22,28 @@
 </head>
 <body>
     <header>
-        <a href="#" class="nav-logo">
-            <img id="cat-logo" src="./img/cat.png" alt="cat-logo">
-        </a>
-        <h1> WELCOME TO FINAL STORE</h1>
-
+        <nav>
+            <div class="cabecera">
+                <a href="#" class="nav-logo">
+                    <img id="cat-logo" src="./img/cat.png" alt="cat-logo">
+                </a>
+                <h1> WELCOME TO FINAL STORE</h1>
+            </div>
+            <div class="enlaces">
+                <a class="scrollNavigation" href="#productsTitle">
+                    PRODUCTS
+                    <i class="fa-solid fa-bag-shopping fa-2xl" style="color: black;"></i>
+                </a>
+                <a class="scrollNavigation" href="#bottom">
+                    MY CART
+                    <i class="fa-solid fa-cart-shopping fa-2xl" style="color: black;"></i>
+                </a>
+                <a class="scrollNavigation" href="#footer">
+                    CONTACT
+                    <i class="fa-solid fa-user fa-2xl" style="color: black;"></i>
+                </a>
+            </div>
+        </nav>
     </header>
 
     <!-- <button id="boton-modo-oscuro">
@@ -58,15 +75,14 @@
     </div>
     
     
-    <hr id="top" class="hidden" /> <!-- ACA -->
+    <!-- <hr id="top" class="hidden" />  ACA
     <a class="scrollNavigation" href="#bottom">
         MY CART
         <i class="fa-solid fa-cart-shopping fa-2xl" style="color: #ffffff;"></i>
-    </a>
-    
+    </a> -->
     
     <br>
-    <h2>PRODUCTS</h2>
+    <h2 id="productsTitle">PRODUCTS</h2>
     <div class="botonesPag">
         <button id="prev">
             <i class="fa-solid fa-arrow-left fa-2xl"></i>
@@ -78,7 +94,7 @@
 
     <div class="botonesOrder">
 
-        <select id="selectorOrden">
+        <select id="selectorOrden"> Order by:
             <option value="default" selected>Default</option>
             <option value="az">Order A-Z</option>
             <option value="za">Order Z-A</option>
@@ -89,19 +105,20 @@
 
     <div class="container-html"></div>
     
-    <hr id="bottom" class="hidden" /> <!--ACA-->
-    <a class="scrollNavigation" href="#top">
-        GO TOP
-        <i class="fa-solid fa-arrow-up-long fa-bounce fa-2xl" style="color: #ffffff;"></i>
-    </a>
+
 
     <div class="carritoHTML">
         <h2>SHOPPING CART </h2>
         <div class="container-carrito"></div>
     </div>
 
+    <hr id="bottom" class="hidden" />
+    <a class="scrollNavigation" href="#top">
+        GO TOP
+        <i class="fa-solid fa-arrow-up-long fa-bounce fa-2xl" style="color: black;"></i>
+    </a>
 
-    <footer>
+    <footer id="footer">
         <h2> CONTACT US</h2>
         <form>
             <input type="text" placeholder="Enter your first name" id="input-nombre">
