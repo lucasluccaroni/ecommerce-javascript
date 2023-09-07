@@ -1,7 +1,7 @@
 const containerHtml = document.querySelector(".container-html");
 const containerCarrito = document.querySelector(".container-carrito")
 const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
+let productosApi;
 
 console.log(carrito);
 
@@ -72,6 +72,7 @@ const requestCards = () =>{
         agregarAlCarrito(data.products)
         removerDelCarrito(carrito)
         ordenarCards(data.products)
+        productosApi = data.products;
     })
     .catch((error) =>console.log(error))
 }
@@ -124,7 +125,9 @@ const removerDelCarrito = array => {
                 duration: 2000,
                 onClick: () => {console.log("MODO OSCURO")}
             }).showToast();
+            removerDelCarrito(array)
         }
+
     }
 }
 
@@ -238,7 +241,9 @@ const ordenarCards = array =>{
         console.log(e.target.value);
 
         if (e.target.value === "default") {
-            cardsAHtml(array, containerHtml);
+            cardsAHtml(productosApi, containerHtml);
+            agregarAlCarrito(productosApi)
+            removerDelCarrito(carrito)
 
         } else if (e.target.value === "az"){
             let cardsOrdenadasAz = array.sort(function(a, b) {
@@ -247,22 +252,29 @@ const ordenarCards = array =>{
             });
             console.log(cardsOrdenadasAz);;
             cardsAHtml(cardsOrdenadasAz, containerHtml)
-
+            agregarAlCarrito(cardsOrdenadasAz)
+            removerDelCarrito(carrito)
+            
         } else if (e.target.value === "za"){
             let cardsOrdenadasZa = array.sort(function(a, b) {
                 let orden = b.title.localeCompare(a.title);
-                //console.log(array);
                 return orden
             });
             cardsAHtml(cardsOrdenadasZa, containerHtml)
+            agregarAlCarrito(cardsOrdenadasZa)
+            removerDelCarrito(carrito)
 
         }else if(e.target.value === "precioAc"){
             let cardsOrdenadasPrecioAc = array.sort((a,b) => a.price-b.price)
-            return cardsAHtml(cardsOrdenadasPrecioAc, containerHtml)
+            cardsAHtml(cardsOrdenadasPrecioAc, containerHtml)
+            agregarAlCarrito(cardsOrdenadasPrecioAc)
+            removerDelCarrito(carrito)
 
         }else if(e.target.value === "precioDec"){
             let cardsOrdenadasPrecioDec = array.sort((a,b) => b.price-a.price)
-            return cardsAHtml(cardsOrdenadasPrecioDec, containerHtml)
+            cardsAHtml(cardsOrdenadasPrecioDec, containerHtml)
+            agregarAlCarrito(cardsOrdenadasPrecioDec)
+            removerDelCarrito(carrito)
         }    
     })
 }
