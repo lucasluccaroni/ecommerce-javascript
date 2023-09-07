@@ -43,6 +43,7 @@ cardsAHtml(carrito, containerCarrito)
 
 
 
+
 //PAGINADO DE LOS PRODUCTOS
 let paginado = 0;
 document.querySelector("#prev").onclick = () =>{
@@ -95,8 +96,9 @@ const agregarAlCarrito = array =>{
             cardsAHtml(carrito, containerCarrito)
             Toastify({
                 className: "toastOsc",
-                backgroundColor: "linear-gradient(90deg, rgba(9,124,110,1) 20%, rgba(2,188,216,1) 79%)",
+                backgroundColor: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 13%, rgba(0,212,255,1) 100%)",
                 text: "Added to cart",
+                position: "center",
                 duration: 2000,
                 onClick: () => {console.log("MODO OSCURO")}
             }).showToast();
@@ -120,12 +122,13 @@ const removerDelCarrito = array => {
             cardsAHtml(carritoModificado, containerCarrito)
             Toastify({
                 className: "toastOsc",
-                backgroundColor: " linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 13%, rgba(0,212,255,1) 100%)",
+                backgroundColor: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 13%, rgba(0,212,255,1) 100%)",
                 text: "Removed from cart",
+                position: "center",
                 duration: 2000,
                 onClick: () => {console.log("MODO OSCURO")}
             }).showToast();
-            removerDelCarrito(array)
+            //removerDelCarrito(array)
         }
 
     }
