@@ -1,5 +1,4 @@
 .container-html{
-    /* border: solid blue 1px; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -13,7 +12,6 @@
     margin-bottom: 10px;
     border: white 10px;
 }
-
 
 .card{
     font-family: 'Open Sans', sans-serif;
@@ -46,11 +44,9 @@ body{
     height: 100%;
 }
 
-
 .swiper {
     width: 99%;
     height: 100%;
-    /* border: solid black 1px; */
     -webkit-box-shadow: 10px 10px 12px 4px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 12px 4px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 12px 4px rgba(0,0,0,0.75);
@@ -69,9 +65,7 @@ body{
     display: block;
     width: 500px;
     height: 400px;
-    /* object-fit: cover; */
 }
-
 
 .modo-oscuro{
     background-image: url("./img/fondo-oscuro3.jpg");
@@ -97,7 +91,6 @@ footer{
     margin-top: 10px;
 }
 
-
 #prev, #next{
     width: fit-content;
     height: 40px;
@@ -114,7 +107,6 @@ footer{
 
 }
 
-
 #boton-modo-oscuro{
     height: 40px;
     width: fit-content;
@@ -123,6 +115,8 @@ footer{
     position: relative;
     right: 900px;
 }
+
+
 /* TOGGLE MODO OSCURO */
 .switch {
     position: relative;
@@ -177,6 +171,7 @@ input:checked + .slider:before {
 }
 /* TOGGLE MODO OSCURO */
 
+
 .modo-oscuro-text{
     font-family: 'Raleway', sans-serif;
     position: relative;
@@ -207,8 +202,8 @@ h2{
 #cat-logo{
     width: 150px;
     height: 200px;
-        position: relative;
-        right: 250px;
+    position: relative;
+    right: 250px;
     border: solid;
     border-radius: 20%;
 }
@@ -245,5 +240,4 @@ header{
     font-size: large;
     background-color: rgb(2, 21, 107);
     font-family: 'Raleway', sans-serif;
-
 }
