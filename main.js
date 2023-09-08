@@ -1,6 +1,6 @@
 const containerHtml = document.querySelector(".container-html");
 const containerCarrito = document.querySelector(".container-carrito")
-const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let productosApi;
 
 console.log(carrito);
@@ -69,11 +69,12 @@ const requestCards = () =>{
     .then(res => res.json())
     .then(data => {
         console.log(data);
+        productosApi = data.products;
+        console.log(productosApi);
         cardsAHtml(data.products, containerHtml)
         agregarAlCarrito(data.products)
         removerDelCarrito(carrito)
         ordenarCards(data.products)
-        productosApi = data.products;
     })
     .catch((error) =>console.log(error))
 }
@@ -133,6 +134,24 @@ const removerDelCarrito = array => {
 
     }
 }
+
+
+//REMOVER TODO DEL CARRITO
+botonRemoverTodos = document.querySelector(".rem-all")
+
+const removerTodoElCarrito = botonRemoverTodos.addEventListener("click", () =>{
+    carrito = [];
+    localStorage.setItem("carrito", JSON.stringify(carrito))
+    cardsAHtml(carrito, containerCarrito);
+    Toastify({
+        className: "toastOsc",
+        backgroundColor: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 13%, rgba(0,212,255,1) 100%)",
+        text: "The cart is empty now.",
+        position: "center",
+        duration: 2000,
+    }).showToast();
+})
+
 
 //MODO OSCURO
 const botonModoOscuro = document.querySelector('.darkMode');
@@ -308,10 +327,3 @@ const ordenarCards = array =>{
 //     })
 // }
 //----------------------------------------------------------------------
-
-
-//Swal.fire("Titulo", "subtitulo", "warning")
-
-{/* <figure class"container-card">
-<img class="imagenes" src=${element.images[0]}  alt=${element.name}>
-</figure> */}

@@ -6,11 +6,12 @@
 }
 
 .container-carrito{
-    background-color: rgb(255, 255, 255);
+    background-color: #03045e;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 10px;
+    border: white 10px;
 }
 
 
@@ -233,4 +234,16 @@ header{
     backdrop-filter: blur(10px);
     width: 100%;
     border-bottom: solid 1px black;
+}
+
+.rem-all{
+    width: fit-content;
+    height: 40px;
+    border-radius: 5%;
+    margin-bottom: 20px;
+    color: white;
+    font-size: large;
+    background-color: rgb(2, 21, 107);
+    font-family: 'Raleway', sans-serif;
+
 }
