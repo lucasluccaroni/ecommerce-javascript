@@ -3,8 +3,6 @@ const containerCarrito = document.querySelector(".container-carrito")
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let productosApi;
 
-console.log(carrito);
-
 
 //CARDS DINAMICAS
 const cardsAHtml = (array, contenedor) => {
@@ -47,7 +45,6 @@ cardsAHtml(carrito, containerCarrito)
 //PAGINADO DE LOS PRODUCTOS
 let paginado = 0;
 document.querySelector("#prev").onclick = () =>{
-    console.log("click");
     if (paginado !== 0) {
         paginado = paginado - 30
         requestCards()
@@ -55,7 +52,6 @@ document.querySelector("#prev").onclick = () =>{
 }
 
 document.querySelector("#next").onclick = () =>{
-    console.log("click");
     if (paginado < 90) {
         paginado = paginado + 30
         requestCards()
@@ -70,7 +66,6 @@ const requestCards = () =>{
     .then(data => {
         console.log(data);
         productosApi = data.products;
-        console.log(productosApi);
         cardsAHtml(data.products, containerHtml)
         agregarAlCarrito(data.products)
         removerDelCarrito(carrito)
@@ -98,10 +93,9 @@ const agregarAlCarrito = array =>{
             Toastify({
                 className: "toastOsc",
                 backgroundColor: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 13%, rgba(0,212,255,1) 100%)",
-                text: "Added to cart",
+                text: "Added to cart.",
                 position: "center",
                 duration: 2000,
-                onClick: () => {console.log("MODO OSCURO")}
             }).showToast();
         }
     }
@@ -110,28 +104,23 @@ const agregarAlCarrito = array =>{
 //REMOVER DEL CARRITO
 const removerDelCarrito = array => {
     const cardsRemove = document.querySelectorAll(".remove-carrito")
-    //console.log(cardsRemove);
 
     for(let i = 0; i < cardsRemove.length; i++){
         cardsRemove[i].onclick = (e) => {
-            console.log("remove");
             const id = e.target.id.slice(4)
             const carritoModificado = array.filter(element => element.id !== Number(id))
             console.log(carritoModificado);
-            // carrito.push(carritoModificado);
             localStorage.setItem("carrito",JSON.stringify(carritoModificado));
             cardsAHtml(carritoModificado, containerCarrito)
+
             Toastify({
                 className: "toastOsc",
                 backgroundColor: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 13%, rgba(0,212,255,1) 100%)",
-                text: "Removed from cart",
+                text: "Removed from cart.",
                 position: "center",
                 duration: 2000,
-                onClick: () => {console.log("MODO OSCURO")}
             }).showToast();
-            //removerDelCarrito(array)
         }
-
     }
 }
 
@@ -163,7 +152,6 @@ if (modoPreferido === 'true') {
 }
 
 botonModoOscuro.addEventListener('click', () => {
-    // Cambiar el modo de la página
     body.classList.toggle('modo-oscuro');
     const modoOscuroActivado = body.classList.contains('modo-oscuro');
     localStorage.setItem('modo-oscuro', modoOscuroActivado);
@@ -189,9 +177,7 @@ const contacto = JSON.parse(localStorage.getItem("contacto")) || [];
 
 formulario.addEventListener("submit", (event)=> {
     event.preventDefault();
-    console.log("formulario enviado");
     
-
     const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputCorreo.value);
     if (!emailValido) {
         Swal.fire("Please enter a valid e-mail", "", "error")
@@ -230,22 +216,12 @@ formulario.addEventListener("submit", (event)=> {
 
 
 
-
 //SWIPER
-// const swiper = new Swiper(".mySwiper", {
-//     navigation: {
-//         nextEl: ".swiper-button-next",
-//         prevEl: ".swiper-button-prev",
-//     },
-// });
-
-
 const swiper = new Swiper(".mySwiper", {
 
     slidesPerView: 3,
     spaceBetween: 30,
     pagination: {
-
         el: ".swiper-pagination",
         clickable: true,
     },
@@ -254,13 +230,11 @@ const swiper = new Swiper(".mySwiper", {
 
 
 //ORDENAR A-Z / Z-A
-// const botonOrdenarAZ = document.querySelector('#ordenar-az');
-// const botonOrdenarZA = document.querySelector('#ordenar-za');
 const selectorOrden = document.querySelector("#selectorOrden")
 
 const ordenarCards = array =>{
     selectorOrden.addEventListener("change", (e)=>{
-        console.log(e.target.value);
+        //console.log(e.target.value);
 
         if (e.target.value === "default") {
             cardsAHtml(productosApi, containerHtml);
@@ -272,7 +246,6 @@ const ordenarCards = array =>{
                 let orden = a.title.localeCompare(b.title);
                 return orden
             });
-            console.log(cardsOrdenadasAz);;
             cardsAHtml(cardsOrdenadasAz, containerHtml)
             agregarAlCarrito(cardsOrdenadasAz)
             removerDelCarrito(carrito)
@@ -300,30 +273,3 @@ const ordenarCards = array =>{
         }    
     })
 }
-
-
-//ORDENAR AZ DOS BOTONES
-// const ordenarAZ = array =>{
-//     botonOrdenarAZ.addEventListener("click", () =>{
-        
-//         cardsOrdenadas = array.sort(function(a, b) {
-//             let prueba = a.title.localeCompare(b.title);
-//             //console.log(array);
-//             return prueba
-//         });
-//         cardsAHtml(cardsOrdenadas, containerHtml)
-//     })
-// }
-
-// const ordenarZA = array =>{
-//     botonOrdenarZA.addEventListener("click", () =>{
-        
-//         cardsOrdenadas = array.sort(function(a, b) {
-//             let prueba = b.title.localeCompare(a.title);
-//             //console.log(array);
-//             return prueba
-//         });
-//         cardsAHtml(cardsOrdenadas, containerHtml)
-//     })
-// }
-//----------------------------------------------------------------------
